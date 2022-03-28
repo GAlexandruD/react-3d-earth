@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import { Canvas } from "@react-three/fiber";
+import { Suspense } from "react";
+import Earth from "./components/Earth";
+import TopSection from "./components/TopSection";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="w-screen h-screen bg-slate-900 relative">
+      <Canvas>
+        <Suspense fallback={null}>
+          <Earth />
+        </Suspense>
+      </Canvas>
+      <TopSection />
+      <div className="w-screen h-screen bg-slate-900 text-white">
+        <h1>Second page</h1>
+      </div>
     </div>
   );
 }
